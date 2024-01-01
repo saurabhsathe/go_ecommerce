@@ -18,3 +18,9 @@ func GetUser(c *gin.Context) {
 func UpdateUser(c *gin.Context) {
 
 }
+func HashPassword(password string) {
+
+}
+func VerifyPassword() {
+
+}
