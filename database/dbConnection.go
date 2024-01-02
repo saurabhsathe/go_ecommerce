@@ -11,7 +11,7 @@ import (
 
 func DBInstance() *mongo.Client {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	mongoDB, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017/caloriesdb"))
+	mongoDB, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017/restaurantdb"))
 
 	if err != nil {
 		log.Fatal(err)
@@ -23,6 +23,6 @@ func DBInstance() *mongo.Client {
 var Client *mongo.Client = DBInstance()
 
 func OpenCollection(client *mongo.Client, collectionName string) *mongo.Collection {
-	mongoCollection := client.Database("caloriesDB").Collection(collectionName)
+	mongoCollection := client.Database("restaurantdb").Collection(collectionName)
 	return mongoCollection
 }
