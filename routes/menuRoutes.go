@@ -10,5 +10,5 @@ func MenuRoutes(request *gin.Engine) {
 	request.POST("/menu/create", controllers.CreateMenu)
 	request.GET("/menus", controllers.GetAllMenus)
 	request.GET("/menu/showmenu/:menu_id", controllers.GetMenu)
-	request.PATCH("/food/update/:menu_id", controllers.GetMenu)
+	request.PATCH("/menu/update/:menu_id", controllers.GetMenu)
 }
