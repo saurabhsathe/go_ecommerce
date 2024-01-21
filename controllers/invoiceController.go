@@ -1,6 +1,12 @@
 package controllers
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/saurabhsathe/restaurant_ecommerce/database"
+	"go.mongodb.org/mongo-driver/mongo"
+)
+
+var invoiceCollection *mongo.Collection = database.OpenCollection(database.Client, "invoiceCollection")
 
 func CreateInvoice(c *gin.Context) {
 

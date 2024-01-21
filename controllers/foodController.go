@@ -17,7 +17,6 @@ import (
 
 var validate = validator.New()
 var foodCollection *mongo.Collection = database.OpenCollection(database.Client, "foodCollection")
-var menuCollection *mongo.Collection = database.OpenCollection(database.Client, "menuCollection")
 
 func CreateFood(c *gin.Context) {
 
@@ -52,7 +51,7 @@ func CreateFood(c *gin.Context) {
 
 	result, insertErr := foodCollection.InsertOne(ctx, food)
 	if insertErr != nil {
-		msg := fmt.Sprintf("Food item was not created")
+		msg := fmt.Sprintf("Failed to create the food item")
 		c.JSON(http.StatusInternalServerError, gin.H{"error": msg})
 		return
 	}
